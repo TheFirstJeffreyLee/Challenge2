@@ -1,0 +1,18 @@
+%form.search_form{ng_submit: "getProducts()"}
+  %input.search_box{type: "text", placeholder: "Enter your search terms", ng_model: "product"}
+  %input{type: "submit", value: "search"}
+
+.products_wrapper
+  .product_container{ng_repeat: "product in products"}
+    %image.product_image{ng_src: "{{product.product.photo}}"}
+    .product_name {{product.product.name}}
+  .clearfix
+
+.pagination_container
+  .pagination_previous{ng_click: "changePage(previous)"} 
+    <
+  .current_page 
+    {{current_page}}
+  .pagination_next{ng_click: "changePage(next)"}
+    >
+           
